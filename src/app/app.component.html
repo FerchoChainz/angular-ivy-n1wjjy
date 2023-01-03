@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h1>ToDo list</h1>
+      <div class="container-form">
+        <input type="text" required [(ngModel)]="newTask" />
+        <button (click)="addTask()">Add</button>
+      </div>
+    </main>
+
+    <div class="body-container">
+      <ul>
+        <li *ngIf="tasks.length === 0">No hay tareas</li>
+        <li class="li" *ngFor="let name of tasks; index as i">
+          {{ name }}
+          <button class="button" (click)="deleteTask(i)">Eliminar tarea</button>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
